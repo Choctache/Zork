@@ -1,27 +1,34 @@
 package com.company;
 
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class ZorkApp {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        InputParser parser = new InputParser();
+        System.out.println("Welcome to a not yet functioning text adventure!");
 
-        System.out.println("Welcome! \n What is your name?");
-        String name = input.next();
-        Player player = new Player(name);
+        Map<Integer, Room> map = new HashMap<>();
+        Room testRoom = new Room("TestRoom");
+        map.put(1,testRoom);
 
+        Item testItem = new Item("testItem", "testItemDescription");
+        ArrayList<Item> inventory = new ArrayList<>();
+        inventory.add(testItem);
 
-        System.out.println("Hello " + player.getName() + "\n\n" +
-                "You are in a room. In front of you on the floor is a purse.\n");
+        Player player = new Player("TestPlayer", inventory);
+        player.whoAmI();
 
+        Room currentRoom = map.get(player.getLocation());
 
-        System.out.println("What do you want to do?");
-        String command = input.nextLine();
-        parser.handleInput(command);
+        System.out.println("Where you are: " + currentRoom.getName());
+        System.out.println("Where you look at: " + currentRoom.getDirectionName(player.getDirection()));
+        currentRoom.listItemsInEyesight(player.getDirection());
+        player.listInventory();
 
 
     }

@@ -1,61 +1,70 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class Room {
 
     private String name;
-    private List<Item> south;
-    private List<Item> north;
-    private List<Item> east;
-    private List<Item> west;
-
-    public List<Item> getSouth() {
-        return south;
-    }
-
-    public void setSouth(List<Item> south) {
-        this.south = south;
-    }
-
-    public List<Item> getNorth() {
-        return north;
-    }
-
-    public void setNorth(List<Item> north) {
-        this.north = north;
-    }
-
-    public List<Item> getEast() {
-        return east;
-    }
-
-    public void setEast(List<Item> east) {
-        this.east = east;
-    }
-
-    public List<Item> getWest() {
-        return west;
-    }
-
-    public void setWest(List<Item> west) {
-        this.west = west;
-    }
+    private HashMap<Integer, ArrayList<Item>> directions;
 
     public Room(String name){
         this.name = name;
-        this.south = new ArrayList<>();
-        this.north = new ArrayList<>();
-        this.east = new ArrayList<>();
-        this.west = new ArrayList<>();
+
+        Item testMItem = new Item("testItem", "testItemDescription");
+
+        ArrayList<Item> east = new ArrayList<>();
+        ArrayList<Item> west = new ArrayList<>();
+        ArrayList<Item> north = new ArrayList<>();
+        ArrayList<Item> south = new ArrayList<>();
+
+        north.add(testMItem);
+
+        this.directions = new HashMap<>();
+        directions.put(1,north);
+        directions.put(2,east);
+        directions.put(3,south);
+        directions.put(4,west);
     }
+
+
 
     public String getName() {
         return name;
     }
 
+    public String getDirectionName(int index){
+        switch(index){
+            case 1:
+                return "North";
+            case 2:
+                return "East";
+            case 3:
+                return "South";
+            default:
+                return "West";
+
+        }
+    }
+
     public void setName(String name) {
         this.name = name;
     }
+
+    public HashMap<Integer,ArrayList<Item>> getDirections() {
+        return directions;
+    }
+
+    public void setDirections(HashMap directions) {
+        this.directions = directions;
+    }
+
+    public void listItemsInEyesight(int index){
+        System.out.println("What is in front of you: ");
+        ArrayList<Item> items = getDirections().get(index);
+        for(Item item : items){
+            System.out.println("\t- " + item.getName() + ": " + item.getDescription());
+        }
+    }
+
 }
