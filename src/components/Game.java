@@ -4,10 +4,20 @@ public class Game {
 
     private Player player;
     private Map map;
+    private InputParser parser;
 
-    public Game(Player player, Map map) {
+    public Game(Player player, Map map, InputParser parser) {
         this.player = player;
         this.map = map;
+        this.parser = parser;
+    }
+
+    public InputParser getParser() {
+        return parser;
+    }
+
+    public void setParser(InputParser parser) {
+        this.parser = parser;
     }
 
     public Player getPlayer() {
