@@ -8,4 +8,15 @@ public class Karte {
         this.map = map;
     }
 
+    public Raum[][] getMap() {
+        return map;
+    }
+
+    public void setMap(Raum[][] map) {
+        this.map = map;
+    }
+
+    public Raum getRoomByCoordinates(int x, int y){
+        return map[x][y];
+    }
 }
