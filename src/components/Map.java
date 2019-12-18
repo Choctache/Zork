@@ -4,7 +4,7 @@ public class Map {
 
     private Room[][] map;
 
-    public Map(Room[][] map){
+    public Map(Room[][] map) {
         this.map = map;
     }
 
@@ -16,7 +16,7 @@ public class Map {
         this.map = map;
     }
 
-    public Room getRoomByCoordinates(int x, int y){
+    public Room getRoomByCoordinates(int x, int y) {
         return map[x][y];
     }
 }

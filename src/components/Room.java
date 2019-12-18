@@ -50,13 +50,13 @@ public class Room {
         String desc = "";
         switch (crossing) {
             case WALL:
-                desc = "wall.";
+                desc = " wall.";
                 break;
             case OPEN_DOOR:
-                desc = "open door.";
+                desc = "n open door.";
                 break;
             case CLOSED_DOOR:
-                desc = "closed door.";
+                desc = " closed door.";
                 break;
         }
         return desc;
@@ -65,31 +65,31 @@ public class Room {
     public void showNorth() {
 
         String desc = describeCrossing(this.north);
-        System.out.println("To the north is a " + desc);
+        System.out.println("To the north is a" + desc);
 
         //Todo: list items on north side
     }
 
     public void showEast() {
 
-        String desc = describeCrossing(this.north);
-        System.out.println("To the east is a " + desc);
+        String desc = describeCrossing(this.east);
+        System.out.println("To the east is a" + desc);
 
         //Todo: list items on east side
     }
 
     public void showSouth() {
 
-        String desc = describeCrossing(this.north);
-        System.out.println("To the south is a " + desc);
+        String desc = describeCrossing(this.south);
+        System.out.println("To the south is a" + desc);
 
         //Todo: list items on south side
     }
 
     public void showWest() {
 
-        String desc = describeCrossing(this.north);
-        System.out.println("To the west is a " + desc);
+        String desc = describeCrossing(this.west);
+        System.out.println("To the west is a" + desc);
 
         //Todo: list items on west side
     }

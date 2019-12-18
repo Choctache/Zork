@@ -7,6 +7,7 @@ public class App {
        Game game = setupGame();
 
         System.out.println("Welcome to your text adventure.");
+        System.out.println();
 
         int x = game.getPlayer().getX();
         int y = game.getPlayer().getY();
@@ -19,6 +20,25 @@ public class App {
         currentRoom.showEast();
         currentRoom.showSouth();
         currentRoom.showWest();
+
+        boolean crossable = currentRoom.isEastCrossable();
+        if(crossable){
+            System.out.println("You can go through a door to the east.");
+            game.getPlayer().setY(y+1);
+            x = game.getPlayer().getX();
+            y = game.getPlayer().getY();
+
+        }
+
+        System.out.println();
+        System.out.println("You are in the room with the coordinates: x = " +x + " and y = " + y);
+        currentRoom = game.getMap().getRoomByCoordinates(x,y);
+
+        currentRoom.showNorth();
+        currentRoom.showEast();
+        currentRoom.showSouth();
+        currentRoom.showWest();
+
 
 
     }
