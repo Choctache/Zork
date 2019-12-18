@@ -27,8 +27,6 @@ public class Room {
         directions.put(4,west);
     }
 
-
-
     public String getName() {
         return name;
     }
@@ -47,16 +45,8 @@ public class Room {
         }
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public HashMap<Integer,ArrayList<Item>> getDirections() {
         return directions;
-    }
-
-    public void setDirections(HashMap directions) {
-        this.directions = directions;
     }
 
     public void listItemsInEyesight(int index){

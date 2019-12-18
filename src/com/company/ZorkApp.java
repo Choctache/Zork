@@ -30,6 +30,15 @@ public class ZorkApp {
         currentRoom.listItemsInEyesight(player.getDirection());
         player.listInventory();
 
+        //ParserCheck
+        InputParser input = new InputParser();
+        Item itemOne = new Item("itemOne", "itemOneDesc");
+        Item itemTwo = new Item("itemTwo","itemTwoDesc");
+        ArrayList<Item> inputItems = new ArrayList<>();
+        inputItems.add(itemOne);
+        inputItems.add(itemTwo);
+        String command = "take itemOne";
+        input.handleInput(command);
 
     }
 }
