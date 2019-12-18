@@ -1,13 +1,13 @@
 package components;
 
-public class Raum {
+public class Room {
 
     private Crossing north;
     private Crossing east;
     private Crossing south;
     private Crossing west;
 
-    public Raum(Crossing north, Crossing east, Crossing south, Crossing west) {
+    public Room(Crossing north, Crossing east, Crossing south, Crossing west) {
         this.north = north;
         this.east = east;
         this.south = south;
@@ -73,7 +73,7 @@ public class Raum {
     public void showEast() {
 
         String desc = describeCrossing(this.north);
-        System.out.println("To the north is a " + desc);
+        System.out.println("To the east is a " + desc);
 
         //Todo: list items on east side
     }
@@ -81,7 +81,7 @@ public class Raum {
     public void showSouth() {
 
         String desc = describeCrossing(this.north);
-        System.out.println("To the north is a " + desc);
+        System.out.println("To the south is a " + desc);
 
         //Todo: list items on south side
     }
@@ -89,7 +89,7 @@ public class Raum {
     public void showWest() {
 
         String desc = describeCrossing(this.north);
-        System.out.println("To the north is a " + desc);
+        System.out.println("To the west is a " + desc);
 
         //Todo: list items on west side
     }

@@ -1,12 +1,11 @@
 package components;
 
-public class Spieler {
+public class Player {
 
     private int x;
     private int y;
 
-
-    public Spieler(int x, int y) {
+    public Player(int x, int y) {
         this.x = x;
         this.y = y;
     }

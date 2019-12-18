@@ -2,27 +2,27 @@ package components;
 
 public class Game {
 
-    private Spieler player;
-    private Karte map;
+    private Player player;
+    private Map map;
 
-    public Game(Spieler player, Karte map) {
+    public Game(Player player, Map map) {
         this.player = player;
         this.map = map;
     }
 
-    public Spieler getPlayer() {
+    public Player getPlayer() {
         return player;
     }
 
-    public void setPlayer(Spieler player) {
+    public void setPlayer(Player player) {
         this.player = player;
     }
 
-    public Karte getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public void setMap(Karte map) {
+    public void setMap(Map map) {
         this.map = map;
     }
 
@@ -34,7 +34,7 @@ public class Game {
         return this.player.getY();
     }
 
-    public Raum getCurrentRoom(int x, int y){
+    public Room getCurrentRoom(int x, int y){
         return this.map.getRoomByCoordinates(x, y);
     }
 
