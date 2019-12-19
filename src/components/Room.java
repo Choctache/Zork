@@ -19,6 +19,10 @@ public class Room {
         this.east = east;
         this.south = south;
         this.west = west;
+        this.northInv = null;
+        this.eastInv = null;
+        this.southInv = null;
+        this.westInv = null;
     }
 
     public Room(Crossing north, Crossing east, Crossing south, Crossing west,
