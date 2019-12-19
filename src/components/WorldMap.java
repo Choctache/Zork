@@ -1,10 +1,10 @@
 package components;
 
-public class Map {
+public class WorldMap {
 
     private Room[][] map;
 
-    public Map(Room[][] map) {
+    public WorldMap(Room[][] map) {
         this.map = map;
     }
 

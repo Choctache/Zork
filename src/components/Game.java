@@ -3,10 +3,10 @@ package components;
 public class Game {
 
     private Player player;
-    private Map map;
+    private WorldMap map;
     private InputParser parser;
 
-    public Game(Player player, Map map, InputParser parser) {
+    public Game(Player player, WorldMap map, InputParser parser) {
         this.player = player;
         this.map = map;
         this.parser = parser;
@@ -28,11 +28,11 @@ public class Game {
         this.player = player;
     }
 
-    public Map getMap() {
+    public WorldMap getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
+    public void setMap(WorldMap map) {
         this.map = map;
     }
 

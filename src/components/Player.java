@@ -1,13 +1,17 @@
 package components;
 
+
 public class Player {
 
     private int x;
     private int y;
+    private Inventory inventory;
 
-    public Player(int x, int y) {
+
+    public Player(int x, int y, Inventory inventory) {
         this.x = x;
         this.y = y;
+        this.inventory = inventory;
     }
 
     public int getX() {
@@ -31,4 +35,11 @@ public class Player {
         this.y = y;
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
 }

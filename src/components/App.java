@@ -1,6 +1,8 @@
 package components;
 
 
+import java.util.HashMap;
+
 public class App {
 
     public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class App {
     }
 
     public static Game setupGame() {
+
         Room westishRoom = new Room(Crossing.WALL, Crossing.OPEN_DOOR, Crossing.WALL, Crossing.WALL);
         Room eastishRoom = new Room(Crossing.WALL, Crossing.WALL, Crossing.WALL, Crossing.OPEN_DOOR);
 
@@ -18,9 +21,13 @@ public class App {
         rooms[0][0] = westishRoom;
         rooms[0][1] = eastishRoom;
 
-        Map map = new Map(rooms);
+        WorldMap map = new WorldMap(rooms);
 
-        Player player = new Player(0, 0);
+        HashMap<String, Item> inv = new HashMap<>();
+
+        Inventory inventory = new Inventory(inv);
+
+        Player player = new Player(0, 0, inventory);
 
         InputParser parser = new InputParser();
 
