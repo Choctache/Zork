@@ -1,12 +1,13 @@
 package components;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Inventory {
 
-    private Map<String, Item> inventory;
+    private HashMap<String, Item> inventory;
 
-    public Inventory(Map<String, Item> inventory) {
+    public Inventory(HashMap<String, Item> inventory) {
         this.inventory = inventory;
     }
 
@@ -14,8 +15,12 @@ public class Inventory {
         return inventory;
     }
 
-    public void setInventory(Map<String, Item> inventory) {
+    public void setInventory(HashMap<String, Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public boolean containsItem(String key){
+        return this.inventory.containsKey(key);
     }
 
     public void addItemToInventory(Item item){
@@ -23,11 +28,25 @@ public class Inventory {
     }
 
     public Item removeItemFromInventory(String name){
-        return this.inventory.remove(name);
-
+        //TODO: Exception handling
+        if(!inventory.containsKey(name)){
+            throw new IllegalArgumentException();
+        }else{
+            return inventory.get(name);
+        }
     }
+
 
     public void listInventory(){
-       //TODO: list inventory
+        for (Map.Entry<String, Item> entry : inventory.entrySet()) {
+            System.out.println("\t- " +entry.getValue().getName() + ": " + entry.getValue().getDescription());
+        }
     }
+
+    public boolean isEmtpy(){
+        return this.inventory.isEmpty();
+    }
+
+
+
 }

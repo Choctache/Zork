@@ -14,8 +14,15 @@ public class App {
 
     public static Game setupGame() {
 
+        Item wRnI = new Item("Book", "A book supposed to be in westish Room in the North");
+        HashMap<String, Item> wRnm = new HashMap<>();
+        wRnm.put(wRnI.getName(), wRnI);
+        Inventory wRn = new Inventory(wRnm);
+
         Room westishRoom = new Room(Crossing.WALL, Crossing.OPEN_DOOR, Crossing.WALL, Crossing.WALL);
         Room eastishRoom = new Room(Crossing.WALL, Crossing.WALL, Crossing.WALL, Crossing.OPEN_DOOR);
+
+        westishRoom.setNorthInv(wRn);
 
         Room[][] rooms = new Room[1][2];
         rooms[0][0] = westishRoom;
@@ -114,13 +121,25 @@ public class App {
                         y = game.getPlayer().getY();
                         currentRoom = game.getMap().getRoomByCoordinates(x, y);
                         System.out.println("You have successfully entered the room with coordinates x = " + x + " and y = " + y);
+                    }else{
+                        System.out.println("There is no possibility to change the room going this way.");
                     }
+                    break;
+                case "spi":
+                    game.getPlayer().getInventory().listInventory();
+                    break;
+                case "ti":
+                    System.out.println("What item would you like to add to your inventory?");
+                    String itemName = game.getParser().getString();
+                    //TODO implement logic
+                    System.out.println(itemName + " was not added to your inventory due to not implemented method.");
+
                     break;
                 case "help":
                     printPossibleCommands();
                     break;
                 case "q":
-                    System.out.println("Tank you for playing Zork.");
+                    System.out.println("Thank you for playing Zork.");
                     return;
             }
         }while(true);

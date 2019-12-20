@@ -1,7 +1,5 @@
 package components;
 
-import java.util.ArrayList;
-
 public class Room {
 
     private Crossing north;
@@ -117,20 +115,16 @@ public class Room {
         return desc;
     }
 
-    public void listInventory(ArrayList<Item> inventory){
-        System.out.println("There are the following items visible: ");
-        for(Item item : inventory){
-            System.out.println("\t- Name: "+ item.getName());
-            System.out.println("\t\t- Description: "+ item.getDescription());
-        }
-    }
 
     public void showNorth() {
 
         String desc = describeCrossing(this.north);
         System.out.println("To the north is a" + desc);
 
-        //Todo: list items on north side
+        if(northInv != null && !northInv.isEmtpy()) {
+            System.out.println("There is the following visible: ");
+            this.northInv.listInventory();
+        }
 
     }
 
@@ -139,7 +133,10 @@ public class Room {
         String desc = describeCrossing(this.east);
         System.out.println("To the east is a" + desc);
 
-        //Todo: list items on east side
+        if(eastInv != null && !northInv.isEmtpy()) {
+            System.out.println("There is the following visible: ");
+            this.eastInv.listInventory();
+        }
 
     }
 
@@ -148,7 +145,10 @@ public class Room {
         String desc = describeCrossing(this.south);
         System.out.println("To the south is a" + desc);
 
-        //Todo: list items on south side
+        if(southInv != null && !northInv.isEmtpy()) {
+            System.out.println("There is the following visible: ");
+            this.southInv.listInventory();
+        }
 
     }
 
@@ -157,7 +157,10 @@ public class Room {
         String desc = describeCrossing(this.west);
         System.out.println("To the west is a" + desc);
 
-        //Todo: list items on west side
+        if(westInv != null && !westInv.isEmtpy()) {
+            System.out.println("There is the following visible: ");
+            this.westInv.listInventory();
+        }
 
     }
 
@@ -188,5 +191,5 @@ public class Room {
     public boolean isWestCrossable() {
         return isCrossable(this.west);
     }
-
+    
 }

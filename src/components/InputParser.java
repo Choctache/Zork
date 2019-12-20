@@ -14,4 +14,5 @@ public class InputParser {
         return this.console.nextLine();
     }
 
+    //Maybe later: getInt() methods for specific choosing in a list could be added
 }
