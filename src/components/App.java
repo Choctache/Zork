@@ -94,6 +94,8 @@ public class App {
                         y = game.getPlayer().getY();
                         currentRoom = game.getMap().getRoomByCoordinates(x, y);
                         System.out.println("You have successfully entered the room with coordinates x = " + x + " and y = " + y);
+                    }else{
+                        System.out.println("There is no possibility to change the room going this way.");
                     }
                     break;
                 case "ew":
@@ -103,6 +105,8 @@ public class App {
                         y = game.getPlayer().getY();
                         currentRoom = game.getMap().getRoomByCoordinates(x, y);
                         System.out.println("You have successfully entered the room with coordinates x = " + x + " and y = " + y);
+                    }else{
+                        System.out.println("There is no possibility to change the room going this way.");
                     }
                     break;
                 case "es":
@@ -112,6 +116,8 @@ public class App {
                         y = game.getPlayer().getY();
                         currentRoom = game.getMap().getRoomByCoordinates(x, y);
                         System.out.println("You have successfully entered the room with coordinates x = " + x + " and y = " + y);
+                    }else{
+                        System.out.println("There is no possibility to change the room going this way.");
                     }
                     break;
                 case "en":
@@ -141,6 +147,8 @@ public class App {
                 case "q":
                     System.out.println("Thank you for playing Zork.");
                     return;
+                default:
+                    System.out.println("try another command");
             }
         }while(true);
 

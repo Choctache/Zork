@@ -47,6 +47,4 @@ public class Inventory {
         return this.inventory.isEmpty();
     }
 
-
-
 }
