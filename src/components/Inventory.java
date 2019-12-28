@@ -7,6 +7,10 @@ public class Inventory {
 
     private HashMap<String, Item> inventory;
 
+    public Inventory(){
+        this.inventory = new HashMap<String,Item>();
+    }
+
     public Inventory(HashMap<String, Item> inventory) {
         this.inventory = inventory;
     }

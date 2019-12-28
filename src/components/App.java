@@ -54,6 +54,7 @@ public class App {
                 "\n\t- <ee>: enter east" +
                 "\n\t- <es>: enter south" +
                 "\n\t- <ew>: enter west" +
+                "\n\t- <ti>: add item from current room to inventory" +
                 "\n\t- <help>: show commands" +
                 "\n\t- <q>: quit game");
         System.out.println();
@@ -146,7 +147,6 @@ public class App {
                     }else{
                         System.out.println("The wanted item is not existent.");
                     }
-
                     break;
                 case "help":
                     printPossibleCommands();
