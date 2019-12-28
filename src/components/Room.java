@@ -1,5 +1,7 @@
 package components;
 
+import java.util.Optional;
+
 public class Room {
 
     private Crossing north;
@@ -191,5 +193,20 @@ public class Room {
     public boolean isWestCrossable() {
         return isCrossable(this.west);
     }
-    
+
+    public Optional<Item> takeItem(String name){
+        if(this.northInv.containsItem(name)){
+           return Optional.of(northInv.removeItemFromInventory(name));
+
+        }else if(this.eastInv.containsItem(name)){
+            return Optional.of(eastInv.removeItemFromInventory(name));
+
+        }else if(this.southInv.containsItem(name)){
+            return Optional.of(southInv.removeItemFromInventory(name));
+
+        }else if(this.westInv.containsItem(name)){
+            return Optional.of(westInv.removeItemFromInventory(name));
+        }
+        return Optional.empty();
+    }
 }

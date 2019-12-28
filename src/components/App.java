@@ -2,6 +2,7 @@ package components;
 
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public class App {
 
@@ -138,7 +139,13 @@ public class App {
                     System.out.println("What item would you like to add to your inventory?");
                     String itemName = game.getParser().getString();
                     //TODO implement logic
-                    System.out.println(itemName + " was not added to your inventory due to not implemented method.");
+                    Optional<Item> wantedItem = currentRoom.takeItem(itemName);
+                    if(wantedItem.isPresent()){
+                        game.getPlayer().getInventory().addItemToInventory(wantedItem.get());
+                        System.out.println(itemName + " was added to your inventory.");
+                    }else{
+                        System.out.println("The wanted item is not existent.");
+                    }
 
                     break;
                 case "help":
