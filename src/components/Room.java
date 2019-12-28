@@ -123,7 +123,7 @@ public class Room {
         String desc = describeCrossing(this.north);
         System.out.println("To the north is a" + desc);
 
-        if(northInv != null && !northInv.isEmtpy()) {
+        if(!northInv.isEmtpy()) {
             System.out.println("There is the following visible: ");
             this.northInv.listInventory();
         }
@@ -135,7 +135,7 @@ public class Room {
         String desc = describeCrossing(this.east);
         System.out.println("To the east is a" + desc);
 
-        if(eastInv != null && !northInv.isEmtpy()) {
+        if(!northInv.isEmtpy()) {
             System.out.println("There is the following visible: ");
             this.eastInv.listInventory();
         }
@@ -147,7 +147,7 @@ public class Room {
         String desc = describeCrossing(this.south);
         System.out.println("To the south is a" + desc);
 
-        if(southInv != null && !northInv.isEmtpy()) {
+        if(!northInv.isEmtpy()) {
             System.out.println("There is the following visible: ");
             this.southInv.listInventory();
         }
@@ -159,7 +159,7 @@ public class Room {
         String desc = describeCrossing(this.west);
         System.out.println("To the west is a" + desc);
 
-        if(westInv != null && !westInv.isEmtpy()) {
+        if(!westInv.isEmtpy()) {
             System.out.println("There is the following visible: ");
             this.westInv.listInventory();
         }
@@ -194,7 +194,7 @@ public class Room {
         return isCrossable(this.west);
     }
 
-    public Optional<Item> takeItem(String name){
+    public Optional<Item> takeItem(String name) throws IllegalArgumentException{
         if(this.northInv.containsItem(name)){
            return Optional.of(northInv.removeItemFromInventory(name));
 

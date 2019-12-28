@@ -44,7 +44,7 @@ public class Game {
         return this.player.getY();
     }
 
-    public Room getCurrentRoom(int x, int y){
+    public Room getCurrentRoom(int x, int y)throws IllegalArgumentException{
         return this.map.getRoomByCoordinates(x, y);
     }
 

@@ -9,7 +9,11 @@ public class App {
     public static void main(String[] args) {
 
         Game game = setupGame();
-        runGame(game);
+        try {
+            runGame(game);
+        }catch (IllegalArgumentException e){
+            System.err.println("Something went wrong, please contact the help service.");
+        }
 
     }
 
@@ -60,7 +64,7 @@ public class App {
         System.out.println();
     }
 
-    public static void runGame(Game game){
+    public static void runGame(Game game) throws IllegalArgumentException{
 
         System.out.println("Welcome to your text adventure.");
         printPossibleCommands();
@@ -101,7 +105,7 @@ public class App {
                     }
                     break;
                 case "ew":
-                    if (currentRoom.isEastCrossable()) {
+                    if (currentRoom.isWestCrossable()) {
                         game.getPlayer().setY(y - 1);
                         x = game.getPlayer().getX();
                         y = game.getPlayer().getY();
@@ -112,7 +116,7 @@ public class App {
                     }
                     break;
                 case "es":
-                    if (currentRoom.isEastCrossable()) {
+                    if (currentRoom.isSouthCrossable()) {
                         game.getPlayer().setX(x + 1);
                         x = game.getPlayer().getX();
                         y = game.getPlayer().getY();
@@ -123,7 +127,7 @@ public class App {
                     }
                     break;
                 case "en":
-                    if (currentRoom.isEastCrossable()) {
+                    if (currentRoom.isNorthCrossable()) {
                         game.getPlayer().setX(x - 1);
                         x = game.getPlayer().getX();
                         y = game.getPlayer().getY();
@@ -139,7 +143,6 @@ public class App {
                 case "ti":
                     System.out.println("What item would you like to add to your inventory?");
                     String itemName = game.getParser().getString();
-                    //TODO implement logic
                     Optional<Item> wantedItem = currentRoom.takeItem(itemName);
                     if(wantedItem.isPresent()){
                         game.getPlayer().getInventory().addItemToInventory(wantedItem.get());

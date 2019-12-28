@@ -31,8 +31,7 @@ public class Inventory {
         this.inventory.put(item.getName(), item);
     }
 
-    public Item removeItemFromInventory(String name){
-        //TODO: Exception handling
+    public Item removeItemFromInventory(String name) throws IllegalArgumentException{
         if(!inventory.containsKey(name)){
             throw new IllegalArgumentException();
         }else{
